@@ -30,7 +30,7 @@
     ]
   },
   "git": {
-    "pre-commit": "lint-staged"
+    "pre-commit": ["lint-staged", "test"]
   },
   "devDependencies": {
     "@zeit/eslint-config-node": "^0.3.0",
