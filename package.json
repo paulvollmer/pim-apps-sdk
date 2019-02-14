@@ -1,0 +1,41 @@
+{
+  "name": "pim-apps-sdk",
+  "version": "0.1.0",
+  "description": "IM Apps Software Developer Kit",
+  "keywords": [
+    "pim",
+    "apps-sdk"
+  ],
+  "private": true,
+  "main": "index.js",
+  "author": "myles.systems",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulvollmer/pim-apps-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paulvollmer/pim-apps-sdk/issues"
+  },
+  "homepage": "https://github.com/paulvollmer/pim-apps-sdk#readme",
+  "scripts": {
+    "test": "jest test",
+    "lint": "zeit-eslint --ext .js .",
+    "lint-fix": "zeit-eslint --fix --ext .js .",
+    "lint-staged": "git diff --diff-filter=ACMRT --cached --name-only '*.js' | xargs zeit-eslint"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@zeit/eslint-config-node"
+    ]
+  },
+  "git": {
+    "pre-commit": "lint-staged"
+  },
+  "devDependencies": {
+    "@zeit/eslint-config-node": "^0.3.0",
+    "@zeit/git-hooks": "^0.1.4",
+    "eslint": "^5.13.0",
+    "jest": "^24.1.0"
+  }
+}
