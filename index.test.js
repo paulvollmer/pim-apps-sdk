@@ -4,6 +4,8 @@
 
 const { EVENTS } = require('./index');
 
-test('EVENTS', () => {
-  expect(EVENTS.PRODUCT_CREATED).toBe('product_created');
+describe('Test index', () => {
+  test('EVENTS', () => {
+    expect(EVENTS.PRODUCT_CREATED).toBe('product_created');
+  });
 });
