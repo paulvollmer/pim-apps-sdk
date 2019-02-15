@@ -5,6 +5,7 @@
 const EVENTS = require('./events');
 
 test('EVENTS', () => {
+  expect(EVENTS.PING).toBe('ping');
   expect(EVENTS.PRODUCT_CREATED).toBe('product_created');
   expect(EVENTS.PRODUCT_UPDATED).toBe('product_updated');
   expect(EVENTS.PRODUCT_DELETED).toBe('product_deleted');
