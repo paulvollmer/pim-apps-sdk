@@ -12,4 +12,4 @@ const mockHeaders = (event, secret, payload) => ({
   'X-PIM-Signature': signature.sign(secret, payload),
 });
 
-module.exports = mockHeaders;
+module.exports = { mockHeaders };
