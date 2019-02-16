@@ -2,7 +2,7 @@
  * Copyright 2019 myles.systems - All rights reserved.
  */
 
-const { signature } = require('./signature');
+const { verify } = require('./signature');
 
 const middleware = secret => (req, res, next) => {
   if (
@@ -10,7 +10,7 @@ const middleware = secret => (req, res, next) => {
     req.headers['x-pim-delivery'] !== '' &&
     req.headers['x-pim-signature'] !== ''
   ) {
-    if (signature.verify(secret, req.headers['x-pim-signature'], req.body)) {
+    if (verify(secret, req.headers['x-pim-signature'], req.body)) {
       next();
     }
   }
