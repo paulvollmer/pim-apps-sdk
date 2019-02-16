@@ -4,8 +4,10 @@
 
 const EVENTS = require('./src/events');
 const signature = require('./src/signature');
+const middleware = require('./src/middleware');
 
 module.exports = {
   EVENTS,
   signature,
+  middleware,
 };
