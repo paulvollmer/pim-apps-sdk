@@ -43,4 +43,16 @@ describe('Test middleware', () => {
         done();
       });
   });
+
+  test('It should response with statuscode 401 (headers not valid)', (done) => {
+    request(app)
+      .post('/')
+      .send(payload)
+      .set([{ 'user-agent': 'wrong-agent' }])
+      .then((response) => {
+        expect(response.statusCode).toBe(401);
+        expect(response.body).toEqual('');
+        done();
+      });
+  });
 });

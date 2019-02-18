@@ -19,14 +19,11 @@
   },
   "homepage": "https://github.com/paulvollmer/pim-apps-sdk#readme",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
+    "test-report": "jest --coverage --coverageReporters html",
     "lint": "eslint --ext .js .",
     "lint-fix": "eslint --fix --ext .js .",
     "format": "prettier --write *.js **/*.js"
-  },
-  "jest": {
-    "verbose": true,
-    "collectCoverage": true
   },
   "husky": {
     "hooks": {
