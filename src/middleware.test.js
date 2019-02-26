@@ -25,7 +25,6 @@ describe('Test middleware', () => {
       .send(payload)
       .set(mockHeaders('testevent', 'test-secret', payload))
       .then((response) => {
-        // console.log(response.body);
         expect(response.statusCode).toBe(200);
         expect(response.body).toEqual({ status: 'ok' });
         done();
@@ -34,7 +33,7 @@ describe('Test middleware', () => {
 
   test('It should response with statuscode 401', (done) => {
     request(app)
-      .post('/')
+      .post('/test')
       .send(payload)
       .set(mockHeaders('testevent', 'wrong-secret', payload))
       .then((response) => {
@@ -46,12 +45,24 @@ describe('Test middleware', () => {
 
   test('It should response with statuscode 401 (headers not valid)', (done) => {
     request(app)
-      .post('/')
+      .post('/test')
       .send(payload)
       .set([{ 'user-agent': 'wrong-agent' }])
       .then((response) => {
         expect(response.statusCode).toBe(401);
         expect(response.body).toEqual('');
+        done();
+      });
+  });
+
+  test('It should response with statuscode 404', (done) => {
+    request(app)
+      .post('/wrong-route')
+      .send(payload)
+      .set(mockHeaders('testevent', 'test-secret', payload))
+      .then((response) => {
+        expect(response.statusCode).toBe(404);
+        expect(response.body).toEqual({});
         done();
       });
   });

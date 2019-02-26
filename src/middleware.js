@@ -11,10 +11,11 @@ const middleware = secret => (req, res, next) => {
     req.headers['x-pim-signature'] !== ''
   ) {
     if (verify(secret, req.headers['x-pim-signature'], req.body)) {
-      next();
+      return next();
     }
   }
   res.status(401).json('');
+  return false;
 };
 
 module.exports = middleware;
