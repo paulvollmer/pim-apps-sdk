@@ -13,6 +13,9 @@ const EVENTS = {
   CATALOG_CREATED: 'catalog_created',
   CATALOG_UPDATED: 'catalog_updated',
   CATALOG_DELETED: 'catalog_deleted',
+  USER_CREATED: 'user_created',
+  USER_UPDATED: 'user_updated',
+  USER_DELETED: 'user_deleted',
 };
 
 module.exports = EVENTS;

@@ -16,5 +16,8 @@ describe('Test events', () => {
     expect(EVENTS.CATALOG_CREATED).toBe('catalog_created');
     expect(EVENTS.CATALOG_UPDATED).toBe('catalog_updated');
     expect(EVENTS.CATALOG_DELETED).toBe('catalog_deleted');
+    expect(EVENTS.USER_CREATED).toBe('user_created');
+    expect(EVENTS.USER_UPDATED).toBe('user_updated');
+    expect(EVENTS.USER_DELETED).toBe('user_deleted');
   });
 });
