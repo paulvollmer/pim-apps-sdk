@@ -4,7 +4,16 @@
 
 const { verify } = require('./signature');
 
-const middleware = secret => (req, res, next) => {
+const middleware = (secret = process.env.WEBHOOK_SECRET || '') => (req, res, next) => {
+  // log the incoming request
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  process.stdout.write(
+    `${req.method}\t${req.path}\tprotocol: ${req.protocol}\tip: ${ip} headers: ${JSON.stringify(
+      req.headers,
+    )}\tbody: ${JSON.stringify(req.body)}\n`,
+  );
+
+  // check the headers and verify the request
   if (
     req.headers['user-agent'] === 'PIM-Hookshot' &&
     req.headers['x-pim-delivery'] !== '' &&
