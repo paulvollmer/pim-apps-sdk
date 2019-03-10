@@ -3,13 +3,15 @@
  */
 
 const EVENTS = require('./src/events');
-const signature = require('./src/signature');
 const middleware = require('./src/middleware');
+const sentry = require('./src/sentry');
+const signature = require('./src/signature');
 const testing = require('./src/testing');
 
 module.exports = {
   EVENTS,
-  signature,
   middleware,
+  sentry,
+  signature,
   testing,
 };
