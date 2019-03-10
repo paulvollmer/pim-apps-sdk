@@ -1,2 +1,2 @@
 # pim-apps-sdk
-PIM Apps Software Developer Kit
+PIM Apps Software Development Kit
