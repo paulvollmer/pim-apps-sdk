@@ -13,6 +13,12 @@ const middleware = (secret = process.env.WEBHOOK_SECRET || '') => (req, res, nex
     )}\tbody: ${JSON.stringify(req.body)}\n`,
   );
 
+  // the /health endpoint is used for app health checks
+  if (req.method === 'GET' && req.path === '/health') {
+    res.status(200).json({ status: 'ok' });
+    return false;
+  }
+
   // check the headers and verify the request
   if (
     req.headers['user-agent'] === 'PIM-Hookshot' &&
