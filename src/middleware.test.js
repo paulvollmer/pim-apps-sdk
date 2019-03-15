@@ -11,7 +11,7 @@ describe('Test middleware', () => {
   const app = express();
   app.use(express.json());
   app.use(middleware('test-secret'));
-  app.post('/test', (req, res) => {
+  app.post('/webhook', (req, res) => {
     res.status(200).json({ status: 'ok' });
   });
 
@@ -19,9 +19,19 @@ describe('Test middleware', () => {
     hello: 'world',
   };
 
+  test('Endpoint /health should response with statuscode 200', (done) => {
+    request(app)
+      .get('/health')
+      .then((response) => {
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual({ status: 'ok' });
+        done();
+      });
+  });
+
   test('It should response with statuscode 200', (done) => {
     request(app)
-      .post('/test')
+      .post('/webhook')
       .send(payload)
       .set(mockHeaders('testevent', 'test-secret', payload))
       .then((response) => {
@@ -33,7 +43,7 @@ describe('Test middleware', () => {
 
   test('It should response with statuscode 401', (done) => {
     request(app)
-      .post('/test')
+      .post('/webhook')
       .send(payload)
       .set(mockHeaders('testevent', 'wrong-secret', payload))
       .then((response) => {
@@ -45,7 +55,7 @@ describe('Test middleware', () => {
 
   test('It should response with statuscode 401 (headers not valid)', (done) => {
     request(app)
-      .post('/test')
+      .post('/webhook')
       .send(payload)
       .set([{ 'user-agent': 'wrong-agent' }])
       .then((response) => {
