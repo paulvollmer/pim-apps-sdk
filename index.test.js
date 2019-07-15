@@ -2,12 +2,7 @@
  * Copyright 2019 myles.systems - All rights reserved.
  */
 
-const {
-  EVENTS,
-  signature,
-  middleware,
-  testing,
-} = require('./index');
+const { EVENTS, signature, middleware, testing } = require('./index');
 
 describe('Test index', () => {
   test('EVENTS', () => {
