@@ -3,6 +3,10 @@
  */
 
 const EVENTS = {
+  APP_CREATED: 'app_created',
+  APP_UPDATED: 'app_updated',
+  APP_DELETED: 'app_deleted',
+
   ATTRIBUTE_UPDATED: 'attribute_updated',
   ATTRIBUTE_DELETED: 'attribute_deleted',
 
@@ -21,12 +25,16 @@ const EVENTS = {
   FAMILY_DELETED: 'family_deleted',
   FAMILY_ATTRIBUTEGROUPS_UPDATED: 'family_attributegroups_updated',
 
-  PING: 'ping',
+  KEYWORD_CREATED: 'keyword_created',
+  KEYWORD_UPDATED: 'keyword_updated',
+  KEYWORD_DELETED: 'keyword_deleted',
 
   PRODUCT_CREATED: 'product_created',
   PRODUCT_UPDATED: 'product_updated',
   PRODUCT_DELETED: 'product_deleted',
   PRODUCT_FAMILY_UPDATED: 'product_family_updated',
+
+  SETTINGS_UPDATED: 'settings_updated',
 
   TRANSLATION_UPDATED: 'translation_updated',
   TRANSLATION_DELETED: 'translation_deleted',

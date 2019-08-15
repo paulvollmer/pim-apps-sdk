@@ -6,6 +6,10 @@ const EVENTS = require('./events');
 
 describe('Test events', () => {
   test('EVENTS', () => {
+    expect(EVENTS.APP_CREATED).toBe('app_created');
+    expect(EVENTS.APP_UPDATED).toBe('app_updated');
+    expect(EVENTS.APP_DELETED).toBe('app_deleted');
+
     expect(EVENTS.ATTRIBUTE_UPDATED).toBe('attribute_updated');
     expect(EVENTS.ATTRIBUTE_DELETED).toBe('attribute_deleted');
 
@@ -24,13 +28,16 @@ describe('Test events', () => {
     expect(EVENTS.FAMILY_DELETED).toBe('family_deleted');
     expect(EVENTS.FAMILY_ATTRIBUTEGROUPS_UPDATED).toBe('family_attributegroups_updated');
 
-    expect(EVENTS.PING).toBe('ping');
+    expect(EVENTS.KEYWORD_CREATED).toBe('keyword_created');
+    expect(EVENTS.KEYWORD_UPDATED).toBe('keyword_updated');
+    expect(EVENTS.KEYWORD_DELETED).toBe('keyword_deleted');
 
     expect(EVENTS.PRODUCT_CREATED).toBe('product_created');
     expect(EVENTS.PRODUCT_UPDATED).toBe('product_updated');
     expect(EVENTS.PRODUCT_DELETED).toBe('product_deleted');
-
     expect(EVENTS.PRODUCT_FAMILY_UPDATED).toBe('product_family_updated');
+
+    expect(EVENTS.SETTINGS_UPDATED).toBe('settings_updated');
 
     expect(EVENTS.TRANSLATION_UPDATED).toBe('translation_updated');
     expect(EVENTS.TRANSLATION_DELETED).toBe('translation_deleted');
